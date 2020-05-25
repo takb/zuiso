@@ -1,4 +1,4 @@
-name: Project automation
+name: project_automation
 
 on:
   issues:
