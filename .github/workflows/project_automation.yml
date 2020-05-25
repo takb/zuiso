@@ -21,9 +21,7 @@ jobs:
 
     - name: handle_label # Assign issues with `:bug: bug` label to project 1
       uses: srggrs/assign-one-project-github-action@1.2.0
-      if:
-        contains(github.event.issue.labels.*.name, '&#58;bug&#58; bug') ||
-        contains(github.event.pull_request.labels.*.name, '&#58;bug&#58; bug')
+      if: "contains(github.event.issue.labels.*.name, ':bug: bug') || contains(github.event.pull_request.labels.*.name, ':bug: bug')"
       with:
         project: 'https://github.com/takb/zuiso/projects/1'
         column_name: 'Urgent'
