@@ -11,7 +11,7 @@ jobs:
     - uses: konradpabjan/move-labeled-or-milestoned-issue@v2.0
       with:
         action-token: "${{ secrets.PROJECT_AUTOMATION }}"
-        project-url: "https://github.com/GIScience/openrouteservice/projects/16"
+        project-url: "https://github.com/takb/zuiso/projects/1"
         column-name: "Urgent"
         label-name: ":bug: bug"
         columns-to-ignore: "Urgent,Assigned,In progress,Review,Awaiting release,Last release"
