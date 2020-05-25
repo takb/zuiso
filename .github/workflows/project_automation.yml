@@ -2,15 +2,28 @@ name: project_automation
 
 on:
   issues:
-    types: [labeled]
+    types: [opened, labeled]
+  pull_request:
+    types: [opened, labeled]
+env:
+  GITHUB_TOKEN: ${{ secrets.PROJECT_AUTOMATION }}
+
 jobs:
-  Move_Labeled_Issue_On_Project_Board:
+  assign_one_project:
     runs-on: ubuntu-latest
+    name: Assign to One Project
     steps:
-    - uses: konradpabjan/move-labeled-or-milestoned-issue@v2.0
+    - name: handle_add # Assign NEW issues and NEW pull requests to project 1
+      uses: srggrs/assign-one-project-github-action@1.2.0
+      if: github.event.action == 'opened'
       with:
-        action-token: "${{ secrets.PROJECT_AUTOMATION }}"
-        project-url: "https://github.com/takb/zuiso/projects/1"
-        column-name: "Urgent"
-        label-name: ":bug: bug"
-        columns-to-ignore: "In Progress,In Review,Ready to deploy,Done"
+        project: 'https://github.com/takb/zuiso//projects/1'
+
+    - name: handle_label # Assign issues with `:bug: bug` label to project 1
+      uses: srggrs/assign-one-project-github-action@1.2.0
+      if: |
+        contains(github.event.issue.labels.*.name, 'bug') ||
+        contains(github.event.pull_request.labels.*.name, 'bug')
+      with:
+        project: 'https://github.com/takb/zuiso//projects/1'
+        column_name: 'Urgent'
