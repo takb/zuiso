@@ -19,3 +19,4 @@ jobs:
         repo: "zuiso"
         project: "1"
         columnbylabel: '{":bug: bug": "Urgent"}'
+        ignorecolumnnames: In progress,Review in progress,Reviewer approved,Done
