@@ -18,4 +18,4 @@ jobs:
         owner: "takb"
         repo: "zuiso"
         project: "1"
-        columnbylabel: "{':bug: bug': 'Urgent'}"
+        columnbylabel: '{":bug: bug": "Urgent"}'
