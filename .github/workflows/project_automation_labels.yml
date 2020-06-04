@@ -9,7 +9,7 @@ on:
     types: [created]
 
 jobs:
-  Handle_event:
+  handle_event:
     runs-on: ubuntu-latest
     steps:
     - uses: takb/project-board@master
