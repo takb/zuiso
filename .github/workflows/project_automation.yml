@@ -21,3 +21,4 @@ jobs:
         columnbylabel: '{":bug: bug": "Urgent"}'
         ignorecolumnnames: "In progress,Review in progress,Reviewer approved,Done"
         labelonclose: "awaiting release" 
+        removeonclose: "To do"
